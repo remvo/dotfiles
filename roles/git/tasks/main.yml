@@ -1,0 +1,31 @@
+---
+- include: install.yml
+
+- name: Link global gitignore file
+  file:
+    src: "{{ dotfiles_home }}/roles/git/files/gitignore_global.link"
+    dest: "{{ ansible_env.HOME}}/.gitignore_global"
+    state: link
+    force: yes
+
+- name: Link git commit message template file
+  file:
+    src: "{{ dotfiles_home }}/roles/git/files/gitcommitmsg.link"
+    dest: "{{ ansible_env.HOME}}/.gitcommitmsg"
+    state: link
+    force: yes
+
+- name: Check if gitconfig exists
+  stat: path="{{ ansible_env.HOME }}/.gitconfig"
+  register: gitconfig_stat
+
+- name: Back up gitconfig
+  command: mv ~/.gitconfig ~/.gitconfig.bak
+  args:
+    creates: "{{ ansible_env.HOME }}/.gitconfig.bak"
+  when: gitconfig_stat.stat.exists and git_gitconfig_backup
+
+- name: Make sure gitconfig is up to date
+  template:
+    src: "gitconfig.j2"
+    dest: "{{ ansible_env.HOME }}/.gitconfig"

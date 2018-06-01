@@ -5,10 +5,16 @@ dotfiles
 ohing504's dotfiles as Ansible roles.
 Fully supports macOS. Debian support is good but not as complete.
 
-Requirements (install these first)
-----------------------------------
+Pre-requisites (install these first)
+------------------------------------
 * Python >= 2.7
 * ansible >= 2.4
+
+Roles
+-----
+* git
+  - Installs and configures git
+  - Useful git aliases
 
 Reference
 ---------

@@ -1,5 +1,5 @@
 ---
 - hosts: localhost
   connection: local
-  become: true
   roles:
+    - { role: ../roles/git, git_gitconfig_backup: no }
