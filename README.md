@@ -1,6 +1,7 @@
 dotfiles
 ========
 [![Build Status](https://travis-ci.org/ohing504/dotfiles.svg?branch=master)](https://travis-ci.org/ohing504/dotfiles)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://raw.githubusercontent.com/ohing504/dotfiles/master/LICENSE)
 
 ohing504's dotfiles as Ansible roles.
 Fully supports macOS. Debian support is good but not as complete.
