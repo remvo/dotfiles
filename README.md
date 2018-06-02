@@ -16,6 +16,10 @@ Roles
 * git
   - Installs and configures git
   - Useful git aliases
+* package_manager
+  - Update and upgrade packages
+* zsh
+  - Installs and configures zsh with oh-my-zsh
 
 Reference
 ---------
