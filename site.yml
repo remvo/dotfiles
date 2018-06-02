@@ -8,3 +8,4 @@
   hosts: local
   roles:
     - git
+    - { role: package_manager, tags: ['bootstrap'] }
