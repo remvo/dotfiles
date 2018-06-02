@@ -4,3 +4,4 @@
   roles:
     - { role: ../roles/git, git_gitconfig_backup: no }
     - { role: ../roles/package_manager, package_upgrade: no, tags: ['bootstrap'] }
+    - { role: ../roles/zsh, tags: ['bootstrap'] }
