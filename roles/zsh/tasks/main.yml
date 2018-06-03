@@ -19,11 +19,11 @@
 - name: Link zshrc file
   file:
     src: "{{ dotfiles_home }}/roles/zsh/files/zshrc.link"
-    dest: "{{ '~/.zshrc' | expanduser }}"
+    dest: "{{ ansible_env.HOME }}/.zshrc"
     state: link
 
 - name: Link custom zsh theme
   file:
     src: "{{ dotfiles_home }}/roles/zsh/files/custom.zsh-theme"
-    dest: "{{ '~/.oh-my-zsh/custom/themes/custom.zsh-theme' | expanduser }}"
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/custom.zsh-theme"
     state: link

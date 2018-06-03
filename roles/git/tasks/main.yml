@@ -4,7 +4,7 @@
 - name: Link global gitignore file
   file:
     src: "{{ dotfiles_home }}/roles/git/files/gitignore_global.link"
-    dest: "{{ '~/.gitignore_global' | expanduser }}"
+    dest: "{{ ansible_env.HOME }}/.gitignore_global"
     state: link
     force: yes
     follow: no
@@ -12,7 +12,7 @@
 - name: Link git commit message template file
   file:
     src: "{{ dotfiles_home }}/roles/git/files/gitcommitmsg.link"
-    dest: "{{ '~/.gitcommitmsg' | expanduser }}"
+    dest: "{{ ansible_env.HOME }}/.gitcommitmsg"
     state: link
     force: yes
     follow: no
@@ -24,10 +24,10 @@
 - name: Back up gitconfig
   command: mv ~/.gitconfig ~/.gitconfig.orig
   args:
-    creates: "{{ '~/.gitconfig.orig' | expanduser }}"
+    creates: "{{ ansible_env.HOME }}/.gitconfig.orig"
   when: gitconfig_stat.stat.exists and git_gitconfig_backup
 
 - name: Make sure gitconfig is up to date
   template:
     src: "gitconfig.j2"
-    dest: "{{ '~/.gitconfig' | expanduser }}"
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
