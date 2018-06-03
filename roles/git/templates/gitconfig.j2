@@ -1,24 +1,24 @@
 [core]
-	excludesfile = ~/.gitignore_global
-	autocrlf = input
-	editor = vim
+    excludesfile = ~/.gitignore_global
+    autocrlf = input
+    editor = vim
 [user]
-	name = {{ git_full_name }}
-	email = {{ git_email }}
+    name = {{ git_full_name }}
+    email = {{ git_email }}
 {% if git_signing_key is defined %}
     signingkey = {{ git_signing_key }}
 {% endif %}
 [commit]
-	template = ~/.gitcommitmsg
+    template = ~/.gitcommitmsg
 [diff]
-	tool = vimdiff
-	submodule = log
-	ui = auto
+    tool = vimdiff
+    submodule = log
+    ui = auto
 [color]
     diff = auto
     status = auto
     branch = auto
-	ui = true
+    ui = true
 [alias]
     # https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases
     co = checkout
