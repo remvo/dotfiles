@@ -32,6 +32,7 @@ matrix:
 branches:
   only:
     - master
+    - develop
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update              ; fi

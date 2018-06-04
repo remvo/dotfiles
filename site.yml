@@ -10,3 +10,4 @@
     - git
     - { role: package_manager, tags: ['bootstrap'] }
     - { role: zsh, tags: ['bootstrap'] }
+    - vim

@@ -1,0 +1,26 @@
+---
+# Installation
+- include: install.yml
+
+# configuration
+- name: Check if vimrc exists
+  stat: path="{{ ansible_env.HOME }}/.vimrc"
+  register: vimrc_stat
+  failed_when: false
+
+- name: Backup vimrc
+  command: mv ~/.vimrc ~/.vimrc.orig
+  args:
+    creates: "{{ ansible_env.HOME }}/.vimrc.orig"
+  when: vimrc_stat.stat.exists
+  changed_when: false
+
+- name: Symlink vimrc
+  file:
+    src: "{{ dotfiles_home }}/roles/vim/files/vimrc.link"
+    dest: "{{ ansible_env.HOME }}/.vimrc"
+    state: link
+    force: yes
+    follow: no
+  changed_when: false
+
