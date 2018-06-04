@@ -1,0 +1,5 @@
+---
+- name: Install Vim with apt
+  apt: name=vim state=latest
+  become: true
+  become_method: sudo

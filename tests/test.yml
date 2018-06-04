@@ -5,3 +5,4 @@
     - { role: ../roles/git }
     - { role: ../roles/package_manager, tags: ['bootstrap'] }
     - { role: ../roles/zsh, tags: ['bootstrap'] }
+    - { role: ../roles/vim }
