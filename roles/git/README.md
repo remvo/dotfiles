@@ -15,9 +15,6 @@ Available variables are listed below, along with default values:
 
     dotfiles_home: "{{ ansible_env.HOME}}/dotfiles"
 
-    # Backup old .gitconfig file
-    git_gitconfig_backup: yes
-
     # Name used in commit message
     git_full_name: ""
 

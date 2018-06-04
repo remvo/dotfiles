@@ -2,6 +2,6 @@
 - hosts: localhost
   connection: local
   roles:
-    - { role: ../roles/git, git_gitconfig_backup: no }
+    - { role: ../roles/git }
     - { role: ../roles/package_manager, tags: ['bootstrap'] }
     - { role: ../roles/zsh, tags: ['bootstrap'] }

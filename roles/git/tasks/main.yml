@@ -25,9 +25,11 @@
   command: mv ~/.gitconfig ~/.gitconfig.orig
   args:
     creates: "{{ ansible_env.HOME }}/.gitconfig.orig"
-  when: gitconfig_stat.stat.exists and git_gitconfig_backup
+  when: gitconfig_stat.stat.exists
+  changed_when: false
 
 - name: Make sure gitconfig is up to date
   template:
     src: "gitconfig.j2"
     dest: "{{ ansible_env.HOME }}/.gitconfig"
+  changed_when: not gitconfig_stat.stat.exists
