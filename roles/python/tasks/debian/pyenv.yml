@@ -1,0 +1,29 @@
+---
+- name: Install requirements
+  become: true
+  become_method: sudo
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - git
+    - make
+    - build-essential
+    - libssl-dev
+    - zlib1g-dev
+    - libbz2-dev
+    - libreadline-dev
+    - libsqlite3-dev
+    - wget
+    - curl
+    - llvm
+    - libncurses5-dev
+    - libncursesw5-dev
+    - xz-utils
+    - tk-dev
+
+- name: Install pyenv from git repo
+  git:
+    repo: "{{ pyenv_git_repo }}"
+    dest: "{{ pyenv_root }}"

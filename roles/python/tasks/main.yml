@@ -1,0 +1,37 @@
+---
+- include: pyenv.yml
+
+- name: Install python versions
+  command: creates={{ pyenv_root }}/versions/{{ item }} pyenv install {{ item }}
+  with_items: "{{ pyenv_versions }}"
+
+- name: Set pyenv default versions
+  vars:
+    versions: "{{ pyenv_default_versions }}"
+  template:
+    src: templates/pyenv_versions.j2
+    dest: "{{ ansible_env.HOME }}/.python-version"
+
+- name: Install addtional python packages
+  pip: name={{ item }} state=latest executable={{ ansible_env.HOME }}/.pyenv/shims/pip
+  with_items:
+    - "{{ python_packages }}"
+
+- name: Check if pytest.ini file exists
+  stat: path="{{ ansible_env.HOME }}/pytest.ini"
+  register: pytest_stat
+
+- name: Back up pytest.ini file
+  command: mv ~/pytest.ini ~/pytest.ini.orig
+  args:
+    creates: "{{ ansible_env.HOME }}/pytest.ini"
+  when: pytest_stat.stat.exists
+  changed_when: false
+
+- name: Link pytest.ini file
+  file:
+    src: "{{ dotfiles_home }}/roles/python/files/pytest.ini"
+    dest: "{{ ansible_env.HOME }}/pytest.ini"
+    state: link
+    force: yes
+  changed_when: false
