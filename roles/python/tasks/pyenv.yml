@@ -1,6 +1,6 @@
 ---
-- include: mac/pyenv.yml
-  when: ansible_os_family == 'Darwin'
-
-- include: debian/pyenv.yml
-  when: ansible_os_family == 'Debian'
+- name: Install nvm from git repo
+  git:
+    repo: "{{ pyenv_git_repo }}"
+    dest: "{{ pyenv_root }}"
+    update: yes
