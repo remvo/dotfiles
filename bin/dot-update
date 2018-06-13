@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "Updating local environment..."
+ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/local_env.yml --ask-become-pass --skip-tags "bootstrap"
