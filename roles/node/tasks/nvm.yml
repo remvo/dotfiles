@@ -1,0 +1,7 @@
+---
+- name: Install nvm from git repo
+  git:
+    repo: "{{ nvm_git_repo }}"
+    dest: "{{ nvm_root }}"
+    update: yes
+    version: master

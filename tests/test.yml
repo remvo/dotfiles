@@ -7,5 +7,6 @@
     - { role: ../roles/zsh, tags: ['bootstrap'] }
     - { role: ../roles/vim }
     - { role: ../roles/python }
+    - { role: ../roles/node }
   vars:
     - dotfiles_home: "{{ ansible_env.HOME }}/dotfiles"

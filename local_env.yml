@@ -12,3 +12,4 @@
     - { role: zsh, tags: ['bootstrap'] }
     - vim
     - python
+    - node
