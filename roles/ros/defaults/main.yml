@@ -9,3 +9,8 @@ ros_package: "desktop-full" # (desktop-full, desktop, ros-base)
 ros_install_dependencies: true
 
 ros_catkin_workspace: "~/catkin_ws"
+
+ros_project_set: false
+ros_project_repo: ""
+ros_project_branch: "master"
+

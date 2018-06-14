@@ -1,3 +1,9 @@
 ---
 - include: ros.yml
 
+- name: Get ROS project from git repo
+  git:
+    repo: "{{ ros_project_repo }}"
+    dest: "{{ ros_catkin_workspace }}"
+    version: "{{ ros_project_branch }}"
+  when: ros_project_set
